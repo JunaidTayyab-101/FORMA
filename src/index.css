@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-ink text-ivory font-sans antialiased overflow-x-hidden; }
+  h1, h2, h3, h4 { @apply font-display font-medium tracking-tight; }
+  :focus-visible { @apply outline outline-2 outline-offset-2 outline-bronze; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+}
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+  .btn { @apply inline-flex min-h-[46px] items-center justify-center gap-2 px-6 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply btn bg-bronze text-ink hover:bg-ivory; }
+  .btn-ghost { @apply btn border border-ivory/30 text-ivory hover:border-bronze hover:text-bronze; }
+  .field { @apply w-full min-h-[46px] border border-ivory/15 bg-surface px-3 text-sm text-ivory placeholder:text-muted/60 focus:border-bronze; }
+  .h-section { @apply text-3xl sm:text-4xl lg:text-5xl; }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .8s ease-out both; }
+.skeleton { background: linear-gradient(90deg,#24221F 25%,#2e2b27 50%,#24221F 75%); background-size: 200% 100%; animation: sk 1.4s infinite; }
+@keyframes sk { to { background-position: -200% 0; } }
